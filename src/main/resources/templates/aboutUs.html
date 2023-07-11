@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+
+</head>
+
+<body>
+	<!-- fragment that gets replaced-->
+	<div layout:fragment="content">
+	<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/><br/> <br/>
+	
+    
+<h2 style="font-family: 'Times New Roman', Times, serif; font-weight: bold; max-width: 1000px;" th:text="${message}">This is default text</h2><br/>
+<h3 style="font-family: 'Times New Roman', Times, serif; max-width: 1000px;" th:text="${message2}">This is more default text</h3><br/>
+<h2 style="font-family: 'Times New Roman', Times, serif; font-weight: bold; max-width: 1000px;" th:text="${message3}">This is default text</h2><br/>
+<h3 style="font-family: 'Times New Roman', Times, serif; max-width: 1000px;" th:text="${message4}">This is more default text</h3><br/>
+
+
+<h2 style="font-family: 'Times New Roman', Times, serif; font-weight: bold; max-width: 1000px;" th:text="${message7}">This is default text</h2><br/>
+
+<img th:src="@{/images/Picture1.png}"/><br/> <br/>
+<img th:src="@{/images/Picture2.png}"/><br/> <br/>
+<img th:src="@{/images/Picture3.png}"/><br/> <br/>
+
+<h2 style="font-family: 'Times New Roman', Times, serif; font-weight: bold; max-width: 1000px;" th:text="${message5}">This is default text</h2><br/>
+<h3 style="font-family: 'Times New Roman', Times, serif; max-width: 1000px;" th:text="${message6}">This is more default text</h3><br/>
+
+	</div>
+</body>
+
+</html>

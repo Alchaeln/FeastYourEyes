@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+<meta charset="ISO-8859-1">
+<title>Error Page</title>
+
+</head>
+
+<body>
+	<!-- fragment that gets replaced-->
+	<div layout:fragment="content">
+	<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/><br/> <br/>
+		<h2 th:text="${message}">This is default text</h2><br/>
+	</div>
+</body>
+
+</html>

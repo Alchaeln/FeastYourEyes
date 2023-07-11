@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layouts/defaultTemplate">
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+</head>
+	
+	<body>
+		<div layout:fragment="content">
+		<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/><br/> <br/>
+            <div th:if="${param.error}">
+				 Invalid User Name or Password.
+            </div>
+			<form th:action="@{/login}" method="post">
+				<table style="font-family: 'Times New Roman', Times, serif">
+					<tr>
+						<td style="padding:5px">Username:</td><td style="padding:5px"><input type="text" name="username" id="username" placeholder="UserName" required/></td>
+					</tr>
+					<tr>
+						<td style="padding:5px">Password:</td><td style="padding:5px"><input type="password" name="password" id="password" placeholder="Password" required/></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="Sign In" /></td>
+					</tr>
+				</table>
+   			 </form>
+			 
+ 		</div>	
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Update Product</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+	<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/><br/> <br/>
+		<form action="#" th:action="@{/doUpdateFavorite}" th:object="${productModel}" method="post">
+			<input type="hidden" name="id" th:value="${productModel.id}">
+			<table>
+				<tr>
+					<td style= "font-family: TimesNewRoman;">Product Name :</td>
+					<td><input type="text" th:field="*{productName}" style= "font-family: TimesNewRoman;"></td>
+					<td>
+						<h5 style="color:red" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">
+							Product Name Error</h5>
+					</td>
+				</tr>
+				<tr>
+					<td style= "font-family: TimesNewRoman;">Open :</td>
+					<td><input type="text" th:field="*{price}" style= "font-family: TimesNewRoman;"></td>
+					<td>
+						<h5 style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error
+						</h5>
+					</td>
+				</tr>
+				<tr>
+					<td style= "font-family: TimesNewRoman;">Rating :</td>
+					<td><input type="text" th:field="*{quantity}" style= "font-family: TimesNewRoman;"></td>
+					<td>
+						<h5 style="color:red" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Quantity
+							Error</h5>
+					</td>
+				</tr>
+				<tr>
+					 <td colspan="3" style="text-align: center;">					</br>
+					 <input type="submit" value="Submit" style= "font-family: TimesNewRoman;"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+
+</html>

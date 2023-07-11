@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layouts/defaultTemplate">
+<head>
+<meta charset="ISO-8859-1">
+<title>Choose Page</title>
+</head>
+
+<div style="display: flex; flex-direction: column; align-items: center;"layout:fragment="content">
+        <div id=photoContainer></div>
+        </br></br>
+        <div style="display: flex;">
+        <form action="#" th:action="@{/choose}" method="get">
+			<button type="submit" style="background: none; border: none; padding: 0; margin: 0; width: 30px; height: 30px; margin-right: 100px">
+  				<img src="/images/FancyX.jpg" alt="Image description" style="width: 100%; height: 100%; object-fit: contain">
+			</button>
+		</form>
+		 <form action="#" th:action="@{/addProduct}" th:object="${productModel}" method="post">
+			<button type="submit" style="background: none; border: none; padding: 0; margin: 0; width: 30px; height: 30px">
+  				<img src="/images/FancyCheckmark.jpg" alt="Image description" style="width: 100%; height: 100%; object-fit: contain">
+			</button>
+		</form>
+		</div>
+<script th:inline="javascript">
+/*<![CDATA[*/
+// Array of photo URLs
+const photoUrls = [
+      "/images/food/PicOfFood1.jpg",
+      "/images/food/Subway-sandwich.jpg",
+      "/images/food/PicOfFood2.jpg",
+      "/images/food/Subway-sandwich.jpg",
+      "/images/food/Einstein.jpg",
+      "/images/food/Subway-sandwich.jpg",
+      "/images/food/ElCarbonero.jpg",
+      "/images/food/GreatWall.jpg",
+      "/images/food/KrispyKreme.jpg",
+      "/images/food/LittleCaesarsPizza.jpg",
+      "/images/food/McDonalds.jpg",
+      "/images/food/QT.jpg",
+      "/images/food/Starbucks.jpg",
+      "/images/food/Subway-sandwich.jpg",
+      
+      /* Add more photo URLs as needed */
+    ];
+    
+// Get a random index from the array
+const randomIndex = Math.floor(Math.random() * photoUrls.length);
+
+// Select a random photo URL
+const randomPhotoUrl = photoUrls[randomIndex];
+
+// Create the <img> element with the random photo URL
+const imgElement = document.createElement("img");
+imgElement.src = randomPhotoUrl;
+
+// Append the <img> element to the desired container
+const container = document.getElementById("photoContainer"); // Replace "photoContainer" with the ID of your container element
+container.appendChild(imgElement);
+</script>
+
+<style>
+#photoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px; /* Adjust the width as per your preference */
+  height: 300px; /* Adjust the height as per your preference */
+  border: 5px solid black;
+  overflow: hidden;
+  background-color: black;
+}
+
+#photo {
+  max-width: calc(100% - 10px);
+  max-height: calc(100% - 10px);
+  width: 100%;
+  height: 100%;
+  border: 5px solid white;
+  box-sizing: border-box;
+  position: relative;
+}
+</style>
+	</div>
+</html>

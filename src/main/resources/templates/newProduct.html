@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+<meta charset="ISO-8859-1">
+<title>F A V O R I T E S</title>
+</head>
+<body>
+<div layout:fragment="content">
+<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/><br/> <br/>
+		<form action ="#" th:action="@{/addProduct}" th:object="${productModel}" method="post">
+			<table>
+				<tr>
+					<td>Restaurant Name :</td><td><input type="text" th:field="*{productName}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}">Product Name Error</h5></td>
+				</tr>
+				<tr>
+					<td>Times :</td><td><input type="text" th:field="*{price}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</h5></td>
+				</tr>
+				<tr>
+					<td>Address :</td><td><input type="text" th:field="*{quantity}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Quantity Error</h5></td>
+				</tr>
+				<tr>
+					<td colspan="3"><input type="submit" value="Submit"></td>
+				</tr>
+			</table>
+	</form>
+</div>
+
+</body>
+</html>
