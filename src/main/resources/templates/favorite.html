@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title th:text="${productModel.productName}">Product Name</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+	<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/><br/> <br/>
+		<h3 style= "font-family: TimesNewRoman;">What would you like to do with </h3>
+		<h3 th:text="${productModel.productName}" style= "font-family: TimesNewRoman;">Favorite Name</h3>
+		<table>
+			<tr>
+				<td>
+					<form style= "font-family: TimesNewRoman;  margin-right: 25px" action="#" th:action="@{/updateFavorite}" th:object="${productModel}" method="post"><input
+							type="hidden" name="id" th:value="${productModel.id}"><input type="submit"
+							value="Update Favorite"></form>
+				</td>
+				<td>
+					<form style= "font-family: TimesNewRoman;" action="#" th:action="@{/deleteFavorite}" th:object="${productModel}" method="post"><input
+							type="hidden" name="id" th:value="${productModel.id}"><input type="submit"
+							value="Delete Favorite"></form>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layouts/defaultTemplate">
+<head>
+<meta charset="ISO-8859-1">
+<title>Register Page</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/><br/> <br/>
+		<form action ="#" th:action="@{doRegister}" th:object="${userModel}" method="post">
+			<table>
+				<tr>
+					<td style="font-family: 'Times New Roman', Times, serif">First Name:</td><td><input type="text" th:field="*{firstname}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">First Name Error</h5></td>
+				</tr>
+				<tr>
+					<td style="font-family: 'Times New Roman', Times, serif">Last Name:</td><td><input type="text" th:field="*{lastname}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Last Name Error</h5></td>
+				</tr>
+				<tr>
+					<td style="font-family: 'Times New Roman', Times, serif">Email :</td><td><input type="email" th:field="*{email}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</h5></td>
+				</tr>
+				<tr>
+					<td style="font-family: 'Times New Roman', Times, serif">Address:</td><td><input type="text" th:field="*{address}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</h5></td>
+				</tr>
+				<tr>
+					<td style="font-family: 'Times New Roman', Times, serif">Username:</td><td><input type="text" th:field="*{credentials.username}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('credentials.username')}" th:errors="*{credentials.username}">User Name Error</h5></td>
+				</tr>
+				<tr>
+					<td style="font-family: 'Times New Roman', Times, serif">Password :</td><td><input type="password" th:field="*{credentials.password}"></td>
+					<td><h5 style="color:red" th:if="${#fields.hasErrors('credentials.password')}" th:errors="*{credentials.password}">Password Error</h5></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center" style="font-family: 'Times New Roman', Times, serif"><input type="submit" value="Submit"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</html>

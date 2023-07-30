@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Delete Favorite</title>
+</head>
+
+<body>
+	<div layout:fragment="content" style= "font-family: TimesNewRoman;">
+	<img th:src="@{/images/LogoFoodFeastYourEyes.jpg}"/></br></br>
+		<form action="#" th:action="@{/doDeleteProduct}" th:object="${productModel}" method="post">
+			<input type="hidden" name="id" th:value="${productModel.id}">
+			<h2>Are you sure you want to delete </h2>
+			<h2 th:text="${productModel.productName}">Product Name</h2>
+			<button type="submit">Yes</button>
+		</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+layout:decorate="layouts/defaultTemplate">
+<head>
+<meta charset="ISO-8859-1">
+<title>Choose Page</title>
+</head>
+
+<div style="display: flex; flex-direction: column; align-items: center;"layout:fragment="content">
+        <div id="photoContainer"></div>
+        </br></br>
+        <div style="display: flex;">
+        <form action="#" th:action="@{/choose}" method="get">
+			<button type="submit" style="background: none; border: none; padding: 0; margin: 0; width: 30px; height: 30px; margin-right: 100px">
+  				<img src="/images/FancyX.jpg" alt="Image description" style="width: 100%; height: 100%; object-fit: contain">
+			</button>
+		</form>
+<form id="addProductForm" action="#" th:action="@{/addProduct}" th:object="${productModel}" method="post">
+    <input type="hidden" id="selectedPhotoUrl" name="selectedPhotoUrl" />
+    <button id="addProductButton" type="submit" style="background: none; border: none; padding: 0; margin: 0; width: 30px; height: 30px">
+        <img src="/images/FancyCheckmark.jpg" alt="Image description" style="width: 100%; height: 100%; object-fit: contain">
+    </button>
+</form>
+
+
+		</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script th:inline="javascript">
+/*<![CDATA[*/
+// Array of photo URLs
+const photoUrls = [
+    "/images/food/Subway-sandwich.jpg",
+    "/images/food/Einstein.jpg",
+    "/images/food/ElCarbonero.jpg",
+    "/images/food/GreatWall.jpg",
+    "/images/food/KrispyKreme.jpg",
+    "/images/food/LittleCaesarsPizza.jpg",
+    "/images/food/McDonalds.jpg",
+    "/images/food/QT.jpg",
+    "/images/food/Starbucks.jpg",
+];
+
+// Get a random index from the array
+const randomIndex = Math.floor(Math.random() * photoUrls.length);
+
+// Select a random photo URL
+const randomPhotoUrl = photoUrls[randomIndex];
+
+// Create the <img> element with the random photo URL
+const imgElement = document.createElement("img");
+imgElement.src = randomPhotoUrl;
+
+// Append the <img> element to the desired container
+const container = document.getElementById("photoContainer");
+container.appendChild(imgElement);
+
+// Set the photo URL in the productModel object
+document.getElementById("addProductButton").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // Get the selected photo URL
+    var selectedPhotoUrl = randomPhotoUrl;
+
+    // Set the value of the hidden input field
+    document.getElementById("selectedPhotoUrl").value = selectedPhotoUrl;
+
+    // Submit the form
+    var form = document.getElementById("addProductForm");
+    form.submit();
+});
+
+
+</script>
+
+
+
+
+<style>
+#photoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px; /* Adjust the width as per your preference */
+  height: 300px; /* Adjust the height as per your preference */
+  border: 5px solid black;
+  overflow: hidden;
+  background-color: black;
+}
+
+#photo {
+  max-width: calc(100% - 10px);
+  max-height: calc(100% - 10px);
+  width: 100%;
+  height: 100%;
+  border: 5px solid white;
+  box-sizing: border-box;
+  position: relative;
+}
+</style>
+	</div>
+</html>
